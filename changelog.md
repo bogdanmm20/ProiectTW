@@ -16,3 +16,9 @@ I'm working on.
 
 # Changelog
 These are the changes to each version that has been released on the official.
+
+## 0.9 
+
+## 0.8  
+**2016-04-11**
+(0.8 vine de  la saptamana_8)
