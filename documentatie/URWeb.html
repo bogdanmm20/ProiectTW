@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="en-GB"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width">
+    <title>U R Web</title>
+    <link rel="stylesheet" href="./URWeb_files/style.css">
+  <style type="text/css"></style></head>
+  <body prefix="schema: http://schema.org/ xsd: http://www.w3.org/2001/XMLSchema# sa: https://ns.science.ai/">
+    <header>
+      <p class="title">U R Web</p>
+    </header>
+    <article id="what" typeof="schema:ScholarlyArticle" resource="#">
+<section>
+				<ol>
+					<li property="schema:author" typeof="sa:ContributorRole">
+						<a property="schema:author"  typeof="schema:Person">
+							<span property="schema:familyName">Anton</span>
+							<span property="schema:givenName">Alina-Mihaela</span>
+						</a>
+					</li>
+					<li property="schema:author" typeof="sa:ContributorRole">
+						<a property="schema:author"  typeof="schema:Person">
+							<span property="schema:familyName">Jecu</span>
+							<span property="schema:givenName">Catalin</span>
+						</a>
+					</li>
+					<li property="schema:author" typeof="sa:ContributorRole">
+						<a property="schema:author" " typeof="schema:Person">
+							<span property="schema:familyName">Marinov</span>
+							<span property="schema:givenName">Bogdan-Mihail</span>
+						</a>
+					</li>
+					<li property="schema:author" typeof="sa:ContributorRole">
+						<a property="schema:author"  typeof="schema:Person">
+							<span property="schema:familyName">Ursache</span>
+							<span property="schema:givenName">Alexandru</span>
+						</a>
+					</li>
+				</ol>
+</section>
+
+ <section typeof="sa:Abstract" id="introducere">
+        <h1>U R Web</h1>
+        <p>
+         U R Web este o aplicatie web cu scopul de facilita user-ului anumite locatii de o anumita categorie specificata de utilizator. 
+         </p>
+
+ </section>
+
+<section typeof="sa:MaterialsAndMethods" id="tehnologii">
+        <h1>Tehnologii folosite</h1>
+     	<p>
+     	</p>
+     	<h3>PHP</h3>
+     	<p>
+     	PHP (Php:Hypertext Preprocessor) este un limbaj de programare server-side,de tip script,interpretat. Folosit inițial pentru a produce pagini web dinamice, este folosit pe scară largă în dezvoltarea paginilor și aplicațiilor web. Se folosește în principal înglobat în codul HTML, acesta fiind si modul in care il vom folosi in aplicatia noastra.
+		Pentru a ne ajuta in implementarea aplicatiei ,am ales sa folosim un framework si anume Laravel. Laravel este un framework php disponibil gratuit,in regim open-source ,creeat de Taylor Otwell cu scopul de a servi drept unealta in dezvolatarea aplicatiilor web bazate pe patternul arhitectural MVC(Model-View-Controller).
+		</p>
+		<h3>JavaScript</h3>
+		<p>
+		JavaScript (JS) este un limbaj de programare orientat obiect bazat pe conceptul prototipurilor. Este folosit mai ales pentru introducerea unor funcționalități în paginile web, codul Javascript din aceste pagini fiind rulat de către browser. 
+		Cea mai des întâlnită utilizare a JavaScript este în scriptarea paginilor web. Programatorii web pot îngloba în paginile HTML script-uri pentru diverse activități cum ar fi verificarea datelor introduse de utilizatori sau crearea de meniuri și alte efecte animate. Vom folosi JavaScript pentru ferestre de tip popup,slideshows si pentru a accesa serviciile oferite de platformele pe care le integram. Aceste platforme ne pun la dispozitie  diverse API-uri (Application Programming Interface) , pe care le vom folosi pentru a integra continutul deja existent pe platformele mentionate,in aplicatia noastra.
+		</p>
+		<p>
+		In continuare vom descrie aceste API-uri:
+		</p>
+		<h4 class="API">Google Maps API</h4>
+		<p>
+			Am construit pe baza API-urilor de la Google Maps o pagina care afiseaza traseul intre doua puncte. Acest lucru ne va fi folositor cand aplicatia o sa fie implementata, iar un utilizator va putea alege un pin de pe harta si i se va arata traseul pana acolo. Pe langa afisare, am construit o functie care preia  functia computeDistanceBetween oferita de Google pentru a determina locatia intre doua pin-uri.
+
+		</p>
+		
+		<h4 class="API">Google Search Places API</h4>
+
+		<p>
+			Google Search Places este un API pe care o sa il folosim pentru a afisa locatiile pe baza coordonatelor utilizatorului preluate din browser.
+		</p>
+		<p class="used">
+			Am reusit sa construim  prin intermediul API-urilor de la Google Maps o aplicatie in HTML/CSS/Javascript care pentru o coordonata exacta, arata un tip de locatie,stabilit in cod, intr-o zona de o arie stabilita tot in cod.
+
+		</p>
+		
+</section>
+
+<section typeof="sa:MaterialsAndMethods" id="arhitectura">
+<h1>Arhitectura</h1>
+ 					 
+					<p>
+						Aplicatia va fi proiectata pe arhitectura MVC. In functie de actiunile selectate de utilizator , browserul va naviga catre o alta pagina ( multipage ).
+					</p>
+					
+					<section>
+						<ol>
+					<li>
+						<section typeof="sa:Abstract">
+							<h3 class="page">
+								Homepage
+							</h3>
+							<p>
+								Este prima pagina pe care un utilizator o intalneste.
+							</p>
+							<p>
+								Aceasta pagina va contine imagini,text si tehnologii implementate.
+							</p>
+							
+						</section>
+					</li>
+					
+					<li>
+						<section typeof="sa:Abstract">
+							<h3 class="page">
+								Sign-up
+							</h3>
+							<p>
+								Pentru inregistrare , userul va introduce numele si parola cu care av dori sa se logheze in aplicatie . Un script va verifica daca ambele campuri au fost completate corect .
+Deasemenea , scriptul va verifica daca mai exista si alti utilizatori cu acelasi nume ( acesta trebuie sa fie unic ) .
+
+								</p>
+						</section>
+					</li>
+					
+					<li>
+						<section typeof="sa:Abstract">
+							<h3 class="page">
+								Login 
+							</h3>
+							<p>
+								Dupa etapa de inregistrare , userul se va loga , iar acelasi script va verifica validarea datelor .
+	Odata autentificat , userul poate selecta din meniu ce optiune doreste . In cazul cautarii unei locatii se va proceda astfel : clientul va alege o categorie si va introduce o locatie/adresa , apoi  utilizand Google Maps Api , se vor cauta toate locatiile cu numele/adresa introdusa de client si se vor afisa ( vor fi evidentiate pe harta ) . In cazul in care o locatie nu a fost gasita , se va autoapela sistemul de recomandare , care functioneaza astfel : daca userul are in lista de locuri prefeate un oniectiv dintre cele cautate de el , se vor afisa acelea , altfel , se for afisa toate obiectivele din zona pentru respectiva categorie .
+
+							</p>
+							
+						</section>
+					</li>
+					<li>
+						<section typeof="sa:Abstract">
+							<h3 class="page">
+								Adaugare Obiectiv
+							</h3>
+							<p>
+								O alta optiune ar fi ca userul sa adauge un nou obiectiv/locatie in lista sa de obiective . In urma selectarii acestei optiune , se va face un insert in baza de data ( in lista de preferinte a utilizatorului ) cu locatia specificata .
+
+							</p>
+							
+						</section>
+					</li>
+					<li>
+						<section typeof="sa:Abstract">
+							<h3 class="page">
+								Adaugare Locatie
+							</h3>
+							<p>
+								Deasemenea , un utilizator va fi capabil sa adauge o locatie la baza de date . Dupa ce va selecta categoria din care face parte noua locatie , va introduce datele specificate , iar locatia va fi adaugata in baza de date .
+
+							</p>
+							
+						</section>
+					</li>
+					<li>
+						<section typeof="sa:Abstract">
+							<h3 class="page">
+								Vizualizare popularitate locatie
+							</h3>
+							<p>
+								O alta optiune este vizualizarea numarului de utilizatori care au adaugat o anumita locatie la lista de preferinte . Utilizatorul va introduce numele unei locatii , iar sistemul va intoarce numarulu utilizatorilor .
+
+							</p>
+							
+						</section>
+					</li>
+				
+						
+<section typeof="sa:MaterialsAndMethods" id="modelaredate">
+<h1>Detalii de implementare</h1>
+	
+
+	<h3>Modelarea datelor</h3>
+	<p>
+	Pentru stocarea datelor vom folosi serveru de baze de date  Oracle .
+	</p>
+	<p>
+	Baza de date va contine tabelele :
+	</p><ul>
+		<li>Tabela <em>Users</em> - va contine campurile : name , password si id_user ( care va fi unic pentru fiecare utilizator ).</li>
+		<li>Tabela <em>Preferences</em> va contine id_user si 10 campuri pref_location1 , pref_location2 .. pref_location10 care vor memora locurile preferate ( id_location ) adaugate de utilizator ( de exemplu , pizzeria Mamma Mia , restauratul Oscar , locuinta unui prieten , etc ) .</li>
+		<li>Tabela <em>Locations</em> va contine toate locatiile inregintrate si va avea urmatoarele campurile :
+id_location , name , category , adress , nr_telefon , descriere .
+
+		</li>
+		
+	</ul>
+	<p>
+		Pentru eficientizare vom crea un index pente fiecare categorie ;
+	</p>
+
+	<p>Aceasta arhitectura a bazei de date precum si relatiile dintre tabele sunt descrise si in diagrama urmatoare :</p>
+
+	  <figure typeof="sa:Image">
+            <img src="./URWeb_files/13010006_1091395647570246_1169492314_o.png">
+      </figure>
+			
+</section>
+<section typeof="sa:MaterialsAndMethods" id="sarcini">
+<h1>Distribuire Sarcini</h1>
+<ol>
+	<li>
+	Anton Alina-Mihaela:
+		<ul>
+		<li>Descrierea Arhitecturii de Sistem</li>
+		<li>Descrierea Bazei de Date</li>
+		<li>Desenare Diagrama de Clase in ArgoUML</li>
+		<li>Research pentru API-uri si Tehnologii Web </li>
+
+		<li>Constructie si Implementare Baza de Date</li>
+		<li>Adaugare locatie noua</li>
+		</ul>
+	</li>
+	<li>
+	Jecu Catalin:
+		<ul>
+		<li>Descrierea Arhitecturii de Sistem</li>
+		<li>Cautare Informatii legate de Tehnologii</li>
+		<li>Constructie Formular Create New Account</li>
+		<li>Constructie si Implementare Baza de Date</li>
+		<li>Recomandari</li>
+		<li>API Rest (partea de model)</li>
+		<li>Adaugare locatie preferata</li>
+		<li>Vizualizare popularitate locatie (recomandarea)</li>
+		</ul>
+	</li>
+	<li>
+	Marinov Bogdan-Mihail:
+		<ul>
+		<li>Sablon pentru Design</li>
+		<li>Constructie Interfata CSS/HTML</li>
+		<li>Implementare Google Search Places API si HTML Geolocation(afisare tipuri de locatii intr-o zona pe o anumita raza masurata in metri ) prin intermediul Javascript - interfata pentru cautare/sugerare locatie</li>
+		<li>Constructie si Implementare Baza de Date</li>
+		<li>Google Text Search API</li>
+		<li>Cautare/sugerare locatie</li>
+		<li>Detalii locatie</li>
+		</ul>
+	</li>
+	<li>
+	Ursache  Alexandru:
+		<ul>
+		<li>Constructie Interfata CSS/HTML</li>
+		<li>Implementare Google Maps API(afisare harta, plasare traseu, aflare distanta dintre doua puncte,afisare locatie) prin intermediul Javascript</li>
+		<li>Constructie si Implementare Baza de Date</li>
+		<li>Constructie Formular Create New Account</li>
+		<li>Homepage (utilizator autentificat/neautentificat)</li>
+		<li>Formular logare/create account</li>
+		</ul>
+	</li>
+	
+</ol>
+</section>
+
+</article>
+<footer>
+      <p>
+        <a href="http://www.info.uaic.ro/bin/Main/">FII</a>
+		•
+        <a href="http://profs.info.uaic.ro/~busaco/teach/courses/web/">Tehnologii Web</a>
+        •
+		 <a href="http://profs.info.uaic.ro/~busaco/teach/courses/web/projects/xml-transform.php?pag=projects">Proiecte</a>
+		
+        
+      </p>
+</footer>
+
+
+</body></html>
