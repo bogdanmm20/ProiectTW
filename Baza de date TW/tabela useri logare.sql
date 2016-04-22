@@ -1,10 +1,12 @@
 DROP TABLE cont_useri;
 /
 
-/*tabel: user
-coloane: id_user,username, email, password*/
+CREATE TABLE cont_useri (id_user VARCHAR2(4),
+                        username VARCHAR2(15),
+                        email VARCHAR2(20),
+                        pass VARCHAR2(15));
+/
 
-CREATE TABLE cont_useri (id_user char(4) not null,
-                        username varchar2(15) not null,
-                        email varchar2(20),
-                        pass varchar2(15) not null);
+--insert into cont_useri(id_user,username,email,pass) values('2','SirAlex','alex@yahoo.com','pass');
+
+COMMIT;
