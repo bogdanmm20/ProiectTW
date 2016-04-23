@@ -24,7 +24,6 @@ CREATE OR REPLACE PROCEDURE
         verifica_email (p_email IN varchar2, p_ok OUT int)
     AS
         caracter varchar2(1);
-        lungime_email int;
         nr_apar_yahoo int := 0; -- apare @yahoo.com de mai multe ori
         nr_apar_gmail int := 0; -- apare @gmail.com de mai multe ori
         nr_apar_hotmail int := 0; -- apare @hotmail.com de mai multe ori
@@ -33,6 +32,8 @@ CREATE OR REPLACE PROCEDURE
         apare_ahotmailcom int := 0; -- apare macar macar o data @hotmail.com
         apar_multe_a int := 0; -- apar cel putin 2 @
         apar_multe_com int := 0; -- apar cel putin 2 .com
+        lungime_email int := 0; -- lungime p_email
+        respectare_format int := 0; -- pozitia de unde incere @yahoo.com
         
         BEGIN
             p_ok := 1;
@@ -40,6 +41,8 @@ CREATE OR REPLACE PROCEDURE
             select instr(p_email, '@gmail.com', 1, 2), instr(p_email, '@gmail.com') into nr_apar_gmail, apare_agmailcom from dual;
             select instr(p_email, '@hotmail.com', 1, 2), instr(p_email, '@hotmail.com') into nr_apar_hotmail, apare_ahotmailcom from dual;
             select instr(p_email, '@', 1, 2), instr(p_email, '.com', 1, 2) into apar_multe_a, apar_multe_com from dual;
+            select instr(p_email, '.com') into respectare_format from dual;
+            select length(p_email) into lungime_email from dual;
             
             if( nr_apar_yahoo != 0 OR nr_apar_hotmail != 0 OR nr_apar_gmail != 0) -- apar 2 la fel
                 THEN
@@ -65,13 +68,25 @@ CREATE OR REPLACE PROCEDURE
                     p_ok := 0;
             END IF;
             
+            if( (apare_ayahoocom = 0 OR apare_agmailcom = 0) AND lungime_email - respectare_format != 3)
+                THEN
+                    dbms_output.put_line('la yahoo sau gmail');
+                    p_ok := 0;
+            END IF;
+            
+            if( apare_ahotmailcom = 0 AND lungime_email - respectare_format != 3 )
+                THEN
+                    dbms_output.put_line('la homail '||respectare_format||' '||lungime_email);
+                    p_ok := 0;
+            END IF;
+            
         END verifica_email;
 /
 DECLARE
   init int;
 BEGIN
-  verifica_email('alex@yahoo.com',init);
-  dbms_output.put_line(init||'alex');
+  verifica_email('alex@hotmail.com',init);
+  dbms_output.put_line(init);
 END;
 /
 show errors;
