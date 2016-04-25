@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../aplicatie/style.css">
+	<link rel="stylesheet" type="text/css" href="formular.css">
+	<title>Adaugare Locatii Favorite</title>
+</head>
+<body>
+	<div id="header"><img id="logoHome" src="../imagini/recomap.png" alt="RecoMap"></div>
+
+	<h3>Adauga locatie favorita</h3>
+
+	<div class="addfav" id="floating-panel">
+	    <b>Alege localitate: </b>
+	    <select id="start">
+	      <option value="iasi, ro">Iasi</option>
+	      <option value="vaslui, ro">Vaslui</option>
+	      <option value="bucuresti, ro">Bucuresti</option>
+	    </select>
+    </div>
+
+	<div class="addfav">
+		<form action="addfav.php" method="post">
+			<label>NumeLocatie:<input type="text" name="NumeLocatie" maxlength="30"></label>  <br>
+			<input type="submit" name="submit" value="Submit" />
+		</form>
+	</div>
+	<div>
+		<p>
+			<a href="afisarelocatii.html">Vezi-Locatii</a>
+		</p>
+	</div>
+	<h3>Lista locatii favorite:</h3>
+</body>
+</html>
