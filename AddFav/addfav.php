@@ -1,57 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Adaugare Fav</title>
 </head>
 <body>
 <?php  
     
-    if(isset($_POST['formUname']) && isset($_POST['formPassword']) && !empty($_POST['formUname']) && !empty($_POST['formPassword']))
+    if(isset($_POST['NumeLocatie']) && !empty($_POST['NumeLocatie']) )
     {
-        $varUname = $_POST['formUname'];
-        $varPassword = $_POST['formPassword'];
-        //echo nl2br("Logare cu succes: \n");
+        $varNloc = $_POST['NumeLocatie'];
     }
     else
     {
-        //echo "Nu ai introdus toate datele <br>\n";
-        header("Location: logare.html");
+        header("Location: locatii.html");
         //die();
     }
 
-    session_start();
-    
-    $_SESSION['Username'] = $varUname;
-
-    $conn=oci_connect("student","student","localhost/XE");
+   $conn=oci_connect("student","student","localhost/XE");
     If (!$conn)
       echo 'Failed to connect to Oracle';
     else 
       echo 'Succesfully connected with Oracle DB';
     echo "<br>\n";
- 
-    $com = oci_parse($conn, "SELECT USERNAME, PASS FROM CONT_USERI where USERNAME = '$varUname' AND PASS = '$varPassword'");
-    oci_execute($com, OCI_DEFAULT);
-    $ok=0;
-    while (oci_fetch($com)) 
+    
+ //daca exista locatia 
+ $stmt = oci_parse($conn, "SELECT nume FROM resurse r where r.nume= '$varNloc' ");
+    oci_execute($stmt, OCI_DEFAULT);
+	
+    $exist = false;
+	//foreach($row as oci_fetch_array($stmt, OCI_ASSOC))
+    while (oci_fetch($stmt)) 
     {
-      if(oci_result($com, "USERNAME")==$varUname && oci_result($com, "PASS")==$varPassword)  
-      {
-        echo "Bine ai venit " . oci_result($com, "USERNAME") . "<br>\n";
-        $ok=1;
-      }
-    }
-    if($ok==0)
-    {
-        echo 'Nu e bun ';
-        header("Location: logare.html");
-        die();
-    }
+      if(oci_result($stmt, "NUME")==$varNloc ) 
+	  {
+		echo " locatia ".oci_result($stmt, "NUME") ." exista " .  "<br>\n";
+		$exist=true; 
+		
+		
+		/***adauga la favorite***
+		$sql="insert into resursefav( id_user, nume ) values ('2', '$varNloc')";
+		$insFav=oci_parse($conn,$sql);
+		// !!!!!!!!!!!!in loc de 2 ar trebui un id_user_session 
+		
+		oci_execute($insFav, OCI_DEFAULT);
+		oci_commit($conn);
+		oci_free_statement($insFav);
+		*/
+		/***adauga la favorite***/
+		$insFav=oci_parse($conn,"insert into resursefav(id_user, nume ) values (:id_usr,:nume)");
+		//////BINDDDD///// Assign value
+        // in loc de 2 ar trebui un id_user_session 
+		$doi=2;
+        oci_bind_by_name($insFav, ':id_usr', $doi );
+        oci_bind_by_name($insFav, ':nume', $varNloc );
+		
+		oci_execute($insFav, OCI_DEFAULT);
+		oci_commit($conn);
+		oci_free_statement($insFav);
+		//*/
+		
+		break;
+	  }
+	}
+	// Daca nu exista locatia
+	if($exist == false)
+	{
+		echo "locatia" .$varNloc ." nu exista " .  "<br>\n";
+		header("Location: locatii.php");
+		
+	}
+	
+	/*$sql  = "SELECT * FROM resurse";
+	$stmt = oci_parse($conn, $sql);
+	oci_execute($stmt, OCI_DEFAULT);
+	oci_fetch_all($stmt, $res);
+	echo "<pre>\n";
+	var_export($res);
+	echo "</pre>\n";
+	*/
+   
 
-    echo "Conectare reusita";
-    header("Location: ../aplicatie/home.html");
+    
+    //header("Location: ../aplicatie/home.html");
+	oci_free_statement($stmt);
     oci_close($conn);
-
     
 ?>
 
