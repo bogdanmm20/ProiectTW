@@ -1,6 +1,14 @@
+<?php
+		session_start();
+		if (!isset($_SESSION['Username'])) 
+		{
+	  		header("Location: homeNeautentificat.html");
+	  	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
+	<!--<meta http-equiv="refresh" content="0; url=verificare user logat.php" /> -->
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="map.js"></script>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBngR69niuAiblEs82gB8Qlx2QaETM4QWs&callback=initMap"> </script>
@@ -8,22 +16,10 @@
 </head>
 <body>
 	<div id="header"><img id="logoHome" src="../imagini/recomap.png" alt="RecoMap">
-     <a class="ghost-button" href="#">Edit</a>
-	</div>
-	<!-- <div id="map"></div>
-	<script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
-	<div>
-		<form id="categorii" action="home.html" method="get">
-		  <input list="optiuni" name="optiuni">
-		  <datalist id="optiuni">
-		    <option value="Restaurant">
-		    <option value="Benzinarii">
-		    <option value="Farmacii">
-		  </datalist>
-		  <input type="submit">
-		</form>
-	</div> -->
-
+     <a class="ghost-button" href="log out.php">Sign out</a>
+     
+     
+	<!--</div>
 	<div id="floating-panel">
 	    <b>Start: </b>
 	    <select id="start">
@@ -37,7 +33,7 @@
 	      <option value="vaslui, ro">Vaslui</option>
 	      <option value="bucuresti, ro">Bucuresti</option>
 	    </select>
-    </div>
+    </div>-->
     <div id="map"></div>
 
 </body>

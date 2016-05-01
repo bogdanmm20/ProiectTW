@@ -4,6 +4,8 @@ body {
 	margin-left: 0;
 	margin-right: 0;
 	margin-bottom: 0;
+	height: 100%;
+	width: 100%;
 }
 
 #header {
@@ -16,20 +18,21 @@ body {
 	height: 30px;
 	width: 200px;
 	margin-top: 15px;
+	margin-bottom: 11px;
 }
 
 #map {
-	width: 500px;
-	height: 400px;
+	width: 100%;
+	height: 90.7vh;
 	background-color: #CCC;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 2%;
-	border-style: solid;
+	margin-top: 0;
+	
 }
 
 #floating-panel {
-	margin-top: 5%;
+	margin-top: 2%;
 	text-align: center;
 	font-family: 'Roboto','sans-serif';
 	line-height: 30px;
@@ -52,18 +55,17 @@ body {
 }
 
 .ghost-button {
-  display: inline-block;
-  
-position: absolute;
-right:8px;
-top:7px;
-  width: 50px;
-  padding: 8px;
-  color: #fff;
-  border: 1px solid #fff;
-  text-align: center;
-  outline: none;
-  text-decoration: none;
+  	display: inline-block;  
+	position: absolute;
+	right:8px;
+	top:7px;
+	width: 100px;
+	padding: 8px;
+	color: #fff;
+	border: 1px solid #fff;
+	text-align: center;
+	outline: none;
+	text-decoration: none;
 }
 
 .ghost-button:hover,
