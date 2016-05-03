@@ -1,0 +1,150 @@
+<?php
+		session_start();
+		if (!isset($_SESSION['Username'])) 
+		{
+	  		header("Location: homeNeautentificat.html");
+	  	}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<!--<meta http-equiv="refresh" content="0; url=verificare user logat.php" /> -->
+	
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="home.css">
+	<script type="text/javascript" src="map.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBngR69niuAiblEs82gB8Qlx2QaETM4QWs&callback=initMap"> </script>
+	<!--link href="bootstrap.min.css" rel="stylesheet"-->
+    <!--link href="jasny-bootstrap.min.css" rel="stylesheet"-->
+    <!--link href="navmenu-reveal.css" rel="stylesheet"-->
+     
+	<title>Home Page</title>
+</head>
+<body>
+	
+<!--div class="navmenu navmenu-default navmenu-fixed-left">
+      <a class="navmenu-brand" href="#">RecoMap</a>
+      <ul class="nav navmenu-nav">
+        <li><a href="#">Edit Preferences</a></li>
+        <li><a href="#">Favorite Locations</a></li>
+        <li class="active"><a href="#">Add Location</a></li>
+        <li><a href="#">Search</a></li>
+      </ul>
+      <ul class="nav navmenu-nav">
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Choose category <b class="caret"></b></a>
+          <ul class="dropdown-menu navmenu-nav">
+            <li><a href="#">Restaurant</a></li>
+            <li><a href="#">Bank</a></li>
+            <li><a href="#">University</a></li>
+            
+            
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+ <div class="canvas">
+      <div class="navbar navbar-default navbar-fixed-top">
+        <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="container"-->
+    <div id="header"><img id="logoHome" src="../imagini/recomap.png" alt="RecoMap">
+     <a class="ghost-button" href="log out.php">Sign out</a>
+   </div> 
+   <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    
+    <div id="map">
+   </div>
+    </div>
+  <script>
+      // This example adds a search box to a map, using the Google Place Autocomplete
+      // feature. People can enter geographical searches. The search box will return a
+      // pick list containing a mix of places and predicted search terms.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initAutocomplete() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -33.8688, lng: 151.2195},
+          zoom: 13,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });
+      }
+
+    </script>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD5yiqS6_0W3IQzYOB27nDb8gW9kVVFos&libraries=places&callback=initAutocomplete"
+         async defer></script>
+    <!--script src="jquery-1.10.2.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="jasny-bootstrap.min.js"></script-->
+</body>
+</html>
