@@ -15,7 +15,11 @@
     else
     {
         //echo "Nu ai introdus toate datele <br>\n";
-        header("Location: logare.html");
+        echo "<script type=\"text/javascript\">
+            window.alert('Date de logare incomplete');
+            window.location='logare.html';
+            </script>";
+        //header("Location: logare.html");
         //die();
     }
 
@@ -25,9 +29,12 @@
 
     $conn=oci_connect("student","student","localhost/XE");
     If (!$conn)
-      echo 'Failed to connect to Oracle';
-    else 
-      echo 'Succesfully connected with Oracle DB';
+      echo "<script type=\"text/javascript\">
+            window.alert('Eroare la conectare baza de date');
+            window.location='logare.html';
+            </script>";
+    /*else 
+      echo 'Succesfully connected with Oracle DB';*/
     echo "<br>\n";
  
     $com = oci_parse($conn, "SELECT USERNAME, PASS FROM CONT_USERI where USERNAME = '$varUname' AND PASS = '$varPassword'");
@@ -37,19 +44,31 @@
     {
       if(oci_result($com, "USERNAME")==$varUname && oci_result($com, "PASS")==$varPassword)  
       {
-        echo "Bine ai venit " . oci_result($com, "USERNAME") . "<br>\n";
+        echo "<script type=\"text/javascript\">
+            window.alert('Salut " . oci_result($com, "USERNAME") ."');
+            window.location='../aplicatie/home.html';
+            </script>";
+        //echo "Bine ai venit " . oci_result($com, "USERNAME") . "<br>\n";
         $ok=1;
       }
     }
     if($ok==0)
     {
-        echo 'Nu e bun ';
-        header("Location: logare.html");
+        //echo 'Nu e bun ';
+        echo "<script type=\"text/javascript\">
+            window.alert('Date de logare incorecte');
+            window.location='logare.html';
+            </script>";
+        //header("Location: logare.html");
         die();
     }
 
-    echo "Conectare reusita";
-    header("Location: ../aplicatie/home.html");
+    //echo "Conectare reusita";
+    echo "<script type=\"text/javascript\">
+            window.alert('Salut " . oci_result($com, "USERNAME") ."');
+            window.location='../aplicatie/home.html';
+            </script>";
+    //header("Location: ../aplicatie/home.html");
     oci_close($conn);
 
     

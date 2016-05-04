@@ -15,16 +15,24 @@
     }
     else
     {
-        echo "Nu ai introdus toate datele <br>\n";
-        header("Location: creare cont.html");
+        echo "<script type=\"text/javascript\">
+            window.alert('Date incomplete');
+            window.location='creare cont.html';
+            </script>";
+        //echo "Nu ai introdus toate datele <br>\n";
+        //header("Location: creare cont.html");
         die();
     }
 
     $conn=oci_connect("student","student","localhost/XE");
     If (!$conn)
-      echo 'Failed to connect to Oracle';
-    else 
-      echo 'Succesfully connected with Oracle DB';
+      //echo 'Failed to connect to Oracle';
+        echo "<script type=\"text/javascript\">
+            window.alert('Eroare la conectare baza de date');
+            window.location='creare cont.html';
+            </script>";
+    /*else 
+      echo 'Succesfully connected with Oracle DB';*/
     echo "<br>\n";
     
     $ok=0;
@@ -43,8 +51,12 @@
     if($ok == 0)
     {
         $ok = 1;
-        echo 'Nu e buna adresa mail';
-        header("Location: creare cont.html");
+        echo "<script type=\"text/javascript\">
+            window.alert('Adresa email incorecta');
+            window.location='creare cont.html';
+            </script>";
+        //echo 'Nu e buna adresa mail';
+        //header("Location: creare cont.html");
         die();
     }
     else
@@ -58,7 +70,7 @@
     $ok = 0;
     while (oci_fetch($comUser)) 
     {
-        echo 'Primul while'.oci_result($comUser, "USERNAME");
+        //echo 'Primul while'.oci_result($comUser, "USERNAME");
         if(oci_result($comUser, "USERNAME")==$varUname)  
         {
            $ok=1;
@@ -69,7 +81,7 @@
     oci_execute($comEmail, OCI_DEFAULT);
     while (oci_fetch($comEmail) && $ok == 0) 
     {
-        echo 'Al doilea while'.oci_result($comEmail, "EMAIL");
+        //echo 'Al doilea while'.oci_result($comEmail, "EMAIL");
         if(oci_result($comEmail, "EMAIL")==$varEmail)  
         {
             $ok=1;
@@ -78,8 +90,12 @@
 
     if($ok == 1)
     {
-        echo 'Ceva e gresit ';
-        header("Location: creare cont.html");
+        echo "<script type=\"text/javascript\">
+            window.alert('Date incorecte/Userul exista deja');
+            window.location='creare cont.html';
+            </script>";
+        //echo 'Ceva e gresit ';
+        //header("Location: creare cont.html");
         die();
     }
     else
@@ -111,8 +127,12 @@
         // -------------------------------------------
     }
 
-    echo "Creare reusita";
-    header("Location: logare.html");
+    echo "<script type=\"text/javascript\">
+            window.alert('Creare cont reusita');
+            window.location='logare.html';
+            </script>";
+    //echo "Creare reusita";
+    //header("Location: logare.html");
     oci_close($conn);
 
     
