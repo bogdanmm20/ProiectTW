@@ -6,12 +6,12 @@ CREATE TABLE locatii(
   oras VARCHAR2(20),
   descriere VARCHAR2(30),
   tip_res VARCHAR2(15),
-  id_res INTEGER
+  id_loc VARCHAR(5)
   )
 /
 CREATE TABLE locatii_favorite(
-  id_user INTEGER,
-  id_res INTEGER
+  id_user VARCHAR2(5),
+  id_loc VARCHAR(5)
   )
 /
 show errors;
