@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div id="game">
+    <button onclick="choose('rock')"><a href="home.html">Rock</a></button>
+    <button onclick="choose('paper')">Paper</button>
+    <button onclick="choose('scissors')">Scissors</button>
+    <div id="result"></div>
+    <br>
+    <br>
+    <button onClick="test()">DEBUG</button>
+    <script>
+    var user;
+function choose(choice){
+    user = choice;
+}
+
+function test(click){
+    alert("You chossed " + user);window.alert(choice);
+window.alert(user);
+}
+
+    </script>
+</div>
+</body>
+</html>

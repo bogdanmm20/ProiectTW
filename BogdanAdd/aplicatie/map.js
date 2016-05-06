@@ -1,6 +1,7 @@
 var map;
 var infowindow;
 var pos;
+
 /*function initMap(position) {
          map = new google.maps.Map(document.getElementById('map'), {
           center: {lat:47.16 , lng: 27.56},
@@ -57,9 +58,19 @@ var pos;
         });
       }*/
 
-      function initMap(position) {
-        
-        var iasi = {lat:47.16 , lng: 27.56};
+//var click_id;
+ var click_id;
+
+function choose(choice)
+{
+  return choice;
+}
+function initMap(position) {
+ 
+  
+
+  window.alert(click_id);
+var iasi = {lat:47.16 , lng: 27.56};
 
         map = new google.maps.Map(document.getElementById('map'), {
           center: iasi,
@@ -70,8 +81,12 @@ var pos;
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
           location: iasi,
-          radius: 5000,
-          type: ['restaurant']
+          radius: 10000,
+          type: choice
+        
+     // asta ar trebui sa duca la home
+  
+
         }, callback);
       }
 
@@ -102,3 +117,4 @@ var pos;
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
       }*/
+
