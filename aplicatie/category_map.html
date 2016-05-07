@@ -8,13 +8,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="menu_dropdown_1.css">
 	<link rel="stylesheet" type="text/css" href="menu_dropdown_2.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-	<script type="text/javascript" src="map.js"></script>
+	<script type="text/javascript" src="category_map.js"></script>
 	<script type="text/javascript" src="focus_menu.js"></script>
+	<script type="text/javascript" src="category_map.js"></script>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBngR69niuAiblEs82gB8Qlx2QaETM4QWs&callback=initMap"> </script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBngR69niuAiblEs82gB8Qlx2QaETM4QWs&libraries=places&callback=initMap" async defer></script>
+	<script type="text/javascript" src="searchtext.js"></script>
 	<title>Home Page</title>
 </head>
 <body>
@@ -26,7 +36,7 @@
 		    <a href="adauga_locatie.html">Add Location</a>
 		    <a href="#">Favourite Location</a>
 		    <a href="#">Edit Preferences</a>
-		    <a href="search text.html">Search</a>
+		    <a href="#">Search</a>
 		    <a href="category.html">Choose category</a>
 		  </div>
 		</div>
@@ -40,8 +50,6 @@
 		  </div>
 		</div>
     </div> 
-
-    <div id="map"></div>
-
+	<div id="map"></div>
 </body>
 </html>
