@@ -12,7 +12,7 @@ function initMap() {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-
+           
             infoWindow.setPosition(pos);
             infoWindow.setContent('Locatia ta.');
             map.setCenter(pos);

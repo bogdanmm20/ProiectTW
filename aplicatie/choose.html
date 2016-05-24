@@ -1,0 +1,88 @@
+<?php
+		session_start();
+		if (!isset($_SESSION['Username'])) 
+		{
+	  		header("Location: homeNeautentificat.html");
+	  	}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="category.js"></script>	
+	<script type="text/javascript" src="choose_menu.js"></script>
+	<link rel="stylesheet" type="text/css" href="menu_dropdown_1.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<title>Home Page</title>
+</head>
+<body>
+	<div id="header"><a href="home.html"><img id="logoHome" src="../imagini/recomap.png" alt="RecoMap"></a>
+ 	    <a class="ghost-button" href="log out.php">Sign out</a>
+		<div class="dropdown">
+		  <button class="dropbtn">Menu</button>
+		  <div class="dropdown-content">
+		    <a href="adauga_locatie.html">Add Location</a>
+		    <a href="AddFav/addfav.html">Favourite Location</a>
+		    <a href="search.html">Search</a>
+		    <a href="choose.html">Choose category</a>
+		    <a href="detalii.html">Show added locations</a>
+		    <a href="traseu.html">Show route</a>
+		  </div>
+		</div>
+	</div>
+
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">X</a>
+		<a href="choose_map.html"> <button  id="buttoncateg" onclick="choose('airport')" >airport</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('bank')"> bank</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('bar')">bar</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('book_store')">book_store</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('cafe')">cafe</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('car_dealer')">car_dealer</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('car_repair')">car_repair</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('car_wash')">car_wash</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('casino')">casino</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('cemetery')">cemetery</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('city_hall')">city_hall</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('church')">church</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('courthouse')">courthouse</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('dentist')">dentist</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('doctor')">doctor</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('electronics_store')">electronics_store</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('funeral_home')">funeral_home</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('gas_station')">gas_station</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('gym')">gym</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('hospital')">hospital</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('library')">library</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('liquor_store')">liquor_store</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('museum')">museum</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('park')">park</button>park</a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('parking')">parking</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('pet_store')">pet_store</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('pharmacy')">pharmacy</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('police')">police</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('restaurant')">restaurant</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('school')">school</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('shopping_mall')">shopping_mall</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('stadium')">stadium</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('store')">store</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('train_station')">train_station</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('university')">university</button></a>
+		<a href="choose_map.html"><button id="buttoncateg" onclick="choose('jewelry_store')">jewelry_store</button></a>
+	</div>
+	<link rel="stylesheet" type="text/css" href="sidemenu_css.css">
+	<span style="font-size:30px;cursor:pointer" onclick="openNav()" id="category">Choose Category</span>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<form action = "">
+  		<fieldset>
+		  	<label>Enter Radius (metres): </label>
+		  	<input type = "text" id = "txtName" />
+		  	<input type = "button" value = "click me" onclick = "formdata()"/>
+  		</fieldset>
+ 	</form>
+</body>
+</html>

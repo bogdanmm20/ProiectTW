@@ -8,12 +8,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="menu_dropdown_1.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-	<script type="text/javascript" src="map.js"></script>
+	<script type="text/javascript" src="category_map.js"></script>
 	<script type="text/javascript" src="focus_menu.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBngR69niuAiblEs82gB8Qlx2QaETM4QWs&callback=initMap"> </script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBngR69niuAiblEs82gB8Qlx2QaETM4QWs&libraries=places&callback=initMap" async defer></script>
+	<script type="text/javascript" src="searchtext.js"></script>
 	<title>Home Page</title>
 </head>
 <body>
@@ -30,9 +39,10 @@
 		    <a href="traseu.html">Show route</a>
 		  </div>
 		</div>
-	</div>
-    <div id="map"></div>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBngR69niuAiblEs82gB8Qlx2QaETM4QWs&libraries=places&callback=initMap" async defer></script>
 
+		
+    </div> 
+	<div id="map"></div>
+	<script type="text/javascript">getLocation();</script>
 </body>
 </html>
