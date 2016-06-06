@@ -1,0 +1,23 @@
+<?php
+		session_start();
+		if (isset($_SESSION['Username'])) 
+		{
+	  		header("Location: home.html");
+	  	}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="map.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+	<title>Home Page user neautentificat</title>
+</head>
+<body>
+	<div id="header"><a href="home.html"><img id="logoHome" src="../imagini/recomap.png" alt="RecoMap"></a>
+		<a class="ghost-button" href="../autentificare/logare.html">Log In</a>
+	</div>
+
+	<div id="map"></div>
+</body>
+</html>

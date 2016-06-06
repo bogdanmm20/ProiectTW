@@ -1,0 +1,74 @@
+<?php
+        session_start();
+        if (!isset($_SESSION['Username'])) 
+        {
+            header("Location: homeNeautentificat.html");
+        }
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="adauga_locatie.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="menu_dropdown_1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script type="text/javascript" src="map.js"></script>
+    <script type="text/javascript" src="focus_menu.js"></script>
+	<title>Adaugare Locatii </title>
+</head>
+<body>
+
+    <div id="header"><a href="home.html"><img id="logoHome" src="../imagini/recomap.png" alt="RecoMap"></a>
+        <a class="ghost-button" href="log_out.php">Sign out</a>
+        <div class="dropdown">
+          <button class="dropbtn">Menu</button>
+          <div class="dropdown-content">
+            <a href="adauga_locatie.html">Add Location</a>
+            <a href="AddFav/addfav.html">Favourite Location</a>
+            <a href="search.html">Search</a>
+            <a href="choose.html">Choose category</a>
+            <a href="detalii.html">Show added locations</a>
+            <a href="traseu.html">Show route</a>
+          </div>
+        </div>
+
+       
+    </div> 
+
+    <form action="adauga_locatie.php" method="post">
+        <div>
+            <label for="nume">Nume:</label>
+            <input type="text" id="nume" name="nume" />
+        </div>
+    	<div>
+            <label for="categorie">Categorie:</label>
+            <input type="text" id="categorie" name="categorie" />
+        </div>
+    	<div>
+            <label for="latitudine">Latitudine:</label>
+            <input type="text" id="latitudine" name="latitudine" />
+        </div>
+    	<div>
+            <label for="longitudine">Longitudine:</label>
+            <input type="text" id="longitudine" name="longitudine" />
+        </div>
+        <div>
+            <label for="oras">Oras:</label>
+            <input type="text" id="oras" name="oras" />
+        </div>
+    	<div>
+            <label for="tara">Tara:</label>
+            <input type="text"id="tara" name="tara" />
+        </div>
+        <div>
+            <label for="descriere">Descriere:</label>
+            <textarea id="descriere" name="descriere"></textarea>
+        </div>
+        
+        <div class="button">
+            <button type="submit">Send your location</button>
+        </div>
+    </form>
+
+</body>
+</html>
