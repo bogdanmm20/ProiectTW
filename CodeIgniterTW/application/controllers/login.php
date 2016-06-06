@@ -22,7 +22,7 @@ Class Login extends CI_Controller {
 				// delete password from user first
 				$this->session->set_userdata('user', $user);
 				
-				redirect(site_url('admin/resurse'));
+				redirect(site_url('resurse'));
 			} else {
 				$this->load->view('login');
 			}

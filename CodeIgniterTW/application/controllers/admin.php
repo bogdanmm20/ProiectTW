@@ -27,7 +27,6 @@ class Admin extends CI_COntroller{
 		var_dump($data);
 	}
 
-	public function del_personalres(){null;}
 
 	public function del_personalres(){null;}
 
