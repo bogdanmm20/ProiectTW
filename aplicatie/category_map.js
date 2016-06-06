@@ -8,22 +8,23 @@ function getLocation() {
 
   var latCode;
   var longCode;
-var iasi;
+//var iasi;
 
   function showPosition(position) {
+    
     latCode = position.coords.latitude;
     longCode = position.coords.longitude;
-    iasi={lat:latCode,lng:longCode};
+    sessionStorage.setItem('latitude', latCode);
+    sessionStorage.setItem('longitude', longCode);
 }
 
  var map;
 var infowindow; 
 
 function initMap() {
-        //window.alert(localStorage.getItem("tip"));
         //var iasi = {lat:47.16 , lng: 27.56};
-        //var iasi = {lat: latCode, lng: longCode};
-        
+        getLocation();
+        var iasi = {lat: parseFloat(sessionStorage.getItem('latitude')), lng: parseFloat(sessionStorage.getItem('longitude'))};
         map = new google.maps.Map(document.getElementById('map'), {
           center: iasi,
           zoom: 15
@@ -47,6 +48,9 @@ function callback(results, status) {
         }
 }
 
+var lat;
+var long;
+
 function createMarker(place) {
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
@@ -55,8 +59,13 @@ function createMarker(place) {
         });
 
         google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
+          infowindow.setContent("Nume:"+place.name+"<br />"+"Website:"+place.website+"Website:"+place.geometry.location.lat()+"Website:"+ place.geometry.location.lng());
+         /*lat = place.geometry.location.lat();
+         long = place.geometry.location.lng(); */
+        localStorage.setItem("lat", place.geometry.location.lat());
+        localStorage.setItem("lng", place.geometry.location.lng());
 
+           
           infowindow.open(map, this);
         });
 }
