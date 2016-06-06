@@ -5,9 +5,9 @@ Class Login extends CI_Controller {
 	public function index() {
 
 	
-		if(!$user = $this->session->user) {
-			redirect(site_url('api/resurces_get'));
-		}
+		// if(!$user = $this->session->user) {
+		// 	redirect(site_url('api/resurces'));
+		// }
 
 
 		$this->form_validation->set_rules('username', 'Uname', 'required|trim');
@@ -29,3 +29,4 @@ Class Login extends CI_Controller {
 		}
 	}
 }
+?>

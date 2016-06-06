@@ -110,7 +110,7 @@ Class Resurse_model extends CI_Model {
 
 
 	//TO do a better view
-	public function delete($id_res)
+	public function delete($id_res=FALSE)
 	{
 		if($id_res){	
 			$this->db->where('id_res', $id_res);

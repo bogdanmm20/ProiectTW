@@ -23,7 +23,7 @@ Class Api extends CI_Controller {
 
 
 		$this->load->model('resurse');
-		$result= $this->resurse->getAll($categ);
+		$result= $this->resurse_model->getAll($categ);
 
 		//print_r($result);
 		//var_dump( $result);
