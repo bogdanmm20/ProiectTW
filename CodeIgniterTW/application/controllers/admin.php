@@ -7,18 +7,36 @@ class Admin extends CI_COntroller{
 	{redirect(site_url('admin/resources'));
 	}
 
-	public function create_resource(){null;}
 
-	public function resources($categ = FALSE) {
+	// TO DO
+	public function add_personalres(){null;}
+	public function del_personalres(){null;}
+
+	public function del_personalres(){null;}
+
+
+	public function personale($categ = FALSE) {
 
 		$this->load->model('resurse');
+		//TO DO need replace  with getPersonal
 		$result= $this->resurse->getAll($categ);
 
 
 		 $data['resurces'] = $result;
 
-		 $this->load->view('admin_resurse', $data);
+		 $this->load->view('resurse_personale', $data);
+	}
 
+	public function favorite($categ = FALSE) {
+
+		$this->load->model('resurse');
+		//TO DO need replace  with getPersonal
+		$result= $this->resurse->getAll($categ);
+
+
+		 $data['resurces'] = $result;
+
+		 $this->load->view('resurse_favorite', $data);
 	}
 
 	public function delete_resursa($id_res)
@@ -30,7 +48,7 @@ class Admin extends CI_COntroller{
 		$this->load->view('admin_delete', $data);
 		
 
-		$this->resurse->delete_resursa($id_res);
+		$this->resurse->delete($id_res);
 	}
 
 	public function edit_res($id_res){

@@ -3,9 +3,9 @@ const PIZZERIE=', TREAT(obiect AS pizzerie).telefon, TREAT(obiect AS pizzerie).w
 const BANCA= ', TREAT(obiect AS banca).telefon, TREAT(obiect AS banca).program_de_lucru ';
 
 
-Class Resurse extends CI_Model {
+Class Resurse_model extends CI_Model {
 
-	public function get1( $id_res =FALSE){
+	public function get1($id_res =FALSE){
 		
 		$categ=FALSE;
 
@@ -89,31 +89,34 @@ Class Resurse extends CI_Model {
 
 		
 		return $result->result_array();
-
 	}
+	
+	//TO DO
+	public function getpersonale($categ=FALSE, $id_user){null;}
+	//TO DO
+	public function getfavorite($categ=FALSE, $id_user){null;}
 
+	// TO DO
 	public function insert_resursa($id_res){
-		
+		null;
 	}
 
-	public function add_to_fav($id_res){null;}
+	// TO DO
+	public function addfav($id_res,$id_user)
+	{null;}
+	// TO DO
+	public function delfav($id_res,$id_user)
+	{null;}
 
-	public function delete_resursa($id_res)
+
+	//TO do a better view
+	public function delete($id_res)
 	{
 		if($id_res){	
 			$this->db->where('id_res', $id_res);
 			$this->db->delete('resurse_oop');
 			}
 	}
-
-
-
-	// public function delete($id) {
-
-	// 	$this->db->where('id_res', $id);
-	// 	$this->db->delete('posts');
-
-	// }
 
 }
 

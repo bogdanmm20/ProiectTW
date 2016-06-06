@@ -12,13 +12,20 @@
 			<th>Descriere</th>
 			<th>Proprietar</th>
 		</tr>
-		<tr>
-		<?php 
-			   foreach ($res as $item) 
-			   {
-			       print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
-			   } 
 
-		?>
-		</tr>
+	<?php foreach($resurces as $res) 
+	{ 
+
+	   print '<tr>';
+
+	   foreach ($res as $item) 
+	   {
+	       print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
+
+	   } ?>
+	   
+	  <?php print '</tr>';
+
+	} ?>
+
 </table>
