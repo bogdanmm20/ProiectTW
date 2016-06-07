@@ -31,8 +31,8 @@
 		 //TO DO
 			//if(logat)
 	   } ?>
-	   	<td><a href="<?php echo site_url('admin/edit_res/' . $res['ID_RES']) ?>">Addfav</a></td>
-		<td><a href="<?php echo site_url('admin/delete_resursa/' . $res['ID_RES']) ?>">Delfav</a></td>
+	   	<td><a href="<?php echo site_url('admin/addfav/' . $res['ID_RES']) ?>">Addfav</a></td>
+		<td><a href="<?php echo site_url('admin/delfav/' . $res['ID_RES']) ?>">Delfav</a></td>
 	   
 	  <?php print '</tr>';
 

@@ -56,16 +56,12 @@ class Admin extends CI_COntroller{
 	//daca da-> ia id_user-ul
 		// NU: 
 		// DA:
-		$id_user=NULL;
+		$id_user=2;
+
+		$this->load->model('resurse_model');
 		$this->resurse_model->addfav($id_res,$id_user);
 
-		//TO DO need replace  with getfavorite
-		$result= $this->resurse_model->getAll($categ);
-
-
-		 $data['resurces'] = $result;
-
-		 $this->load->view('resurse_favorite', $data);
+		$this->favorite();
 
 		}
 	// TO DO
@@ -77,15 +73,11 @@ class Admin extends CI_COntroller{
 		// NU: 
 		// DA:
 		$id_user=2;
+		$this->load->model('resurse_model');
 		$this->resurse_model->delfav($id_res,$id_user);
 
-		//TO DO need replace  with getfavorite
-		$result= $this->resurse_model->getAll($categ);
-
-
-		 $data['resurces'] = $result;
-
-		 $this->load->view('resurse_favorite', $data);
+		
+		$this->favorite();
 	}
 
 

@@ -241,7 +241,7 @@ Class Resurse_model extends CI_Model {
 	{
 		$this->db->where('id_user', $id_user);
 		$this->db->where('id_res', $id_res);
-		$this->db->insert('resursefav');
+		$this->db->delete('resursefav');
 	}
 
 
