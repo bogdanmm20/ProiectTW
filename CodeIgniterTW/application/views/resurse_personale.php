@@ -1,3 +1,6 @@
+//TO DO
+Link catre Adaugare locatie prin admin/add_personalres
+
 <table border="1">
 		<tr>
 			<th>Id_res</th>
@@ -27,9 +30,7 @@
 	   foreach ($res as $item) 
 	   {
 	       print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
-		  // td_specializare($row['TIP_RES']);
-		  // print <td>$row['TELEFON']</td>;
-		  // print <td>$row['WEBSITE']</td>;
+
 	   } ?>
 
 	   	<td><a href="<?php echo site_url('admin/edit_res/' . $res['ID_RES']) ?>">Edit</a></td>

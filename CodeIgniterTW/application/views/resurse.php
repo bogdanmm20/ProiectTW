@@ -1,3 +1,9 @@
+<?php
+//TO DO
+//if(nelogat) 
+	//link spre login
+?>
+
 <table border="1">
 		<tr>
 			<th>Id_res</th>
@@ -18,14 +24,19 @@
 
 	   print '<tr>';
 
-	   foreach ($res as $item) 
+	      foreach ($res as $item) 
 	   {
 	       print '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
-
+		 
+		 //TO DO
+			//if(logat)
 	   } ?>
+	   	<td><a href="<?php echo site_url('admin/edit_res/' . $res['ID_RES']) ?>">Addfav</a></td>
+		<td><a href="<?php echo site_url('admin/delete_resursa/' . $res['ID_RES']) ?>">Delfav</a></td>
 	   
 	  <?php print '</tr>';
 
 	} ?>
+
 
 </table>
