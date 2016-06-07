@@ -175,7 +175,7 @@ Class Resurse_model extends CI_Model {
 		return $result->result_array();
 	}
 
-	// TO DO
+	//TO DO
 	// public function insert_resursa($data){
 
 	// 			$categ=FALSE;
@@ -184,9 +184,9 @@ Class Resurse_model extends CI_Model {
 
 	// 	$query = "insert into resurse_oop r(id_res, r.obiect, id_user) values (seq_resurse.nextval, ";
 
-	// 	if(!$categ === FALSE)
+	// 	if(!$data['r.obiect.tip_res']( === FALSE)
 	// 	{	
-	// 		switch ($categ) 
+	// 		switch ($data['r.obiect.tip_res']() 
 	// 		{
  //    		case "pizzerie":
  //        		$query= $query . "PIZZERIE( )" ;
